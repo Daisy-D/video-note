@@ -4,14 +4,12 @@ var request = require('request')
 const cheerio = require('cheerio')
 
 app.get('/', function (req, res) {
-  request('https://ke.qq.com/', function (error, response, body) {
+  request('https://www.cnblogs.com/xiandedanteng/p/7540546.html', function (error, response, body) {
     if (!error && response.statusCode === 200) {
       const $ = cheerio.load(body) // $此刻拿到了整个body前端选择器
-      let list = []
-      list.push($('.item-tt-link').html())
-      console.log(body)
+      console.log($('li a').text())
       res.json({
-        'Classnum': $('.item-tt-link').length
+        'Classnum': $('li a').length
       })
     } else {
       console.log('error:', error) // Print the error if one occurred
