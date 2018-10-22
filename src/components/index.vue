@@ -1,10 +1,16 @@
 <template>
-  <div class='index-contain'>
-    <div class='module-box' v-for='(item,index) in courseOutlineList' :key='index'>
-      <div class='module-title'>{{item.title}}</div>
-      <Collapse v-model='collapseValue' accordion>
-        <Panel name='1'>史蒂夫·乔布斯
-          <p slot='content'>史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。</p>
+  <div class="index-contain">
+    <div class="module-box" v-for="(item,index) in oneList" :key="index">
+      <div class="module-title">{{item.title}}</div>
+      <Collapse v-model="collapseValue" accordion>
+        <Panel :name="indexTwo+''" v-for="(itemTwo,indexTwo) in item.list" :key="indexTwo">
+          {{itemTwo.couse}}
+          <div slot="content" v-for="(itemTwoInfo,indexTwoInfo) in itemTwo.arr" :key="indexTwoInfo">
+            <!-- <i-circle :percent="80">
+              <span class="demo-Circle-inner" style="font-size:24px">80%</span>
+            </i-circle>-->
+            {{itemTwoInfo}}
+          </div>
         </Panel>
       </Collapse>
     </div>
@@ -12,34 +18,16 @@
 </template>
 
 <script>
+import oneList from "../common/json/oneList.js";
 export default {
-  name: 'index',
-  data () {
+  name: "index",
+  data() {
     return {
-      collapseValue: '1',
-      courseOutlineList: [
-        {
-          title: '第一周.JavaScript语言新发展'
-        },
-        {
-          title: '第二周.大话NodeJS72般变化'
-        },
-        {
-          title: '第三周.前端工程化那些事'
-        },
-        {
-          title: '第四周.前端性能优化与工程化'
-        },
-        {
-          title: '第五周.CSS古话今说与网站重构'
-        },
-        {
-          title: '第六周.MVC MVVM框架那些事'
-        }
-      ]
-    }
+      collapseValue: "0",
+      oneList: oneList
+    };
   }
-}
+};
 </script>
 
 <style scoped lang='less'>
@@ -51,7 +39,7 @@ export default {
     padding: 10px;
     border-radius: 5px;
     border: solid 1px #a1a1a1;
-    .module-title{
+    .module-title {
       margin-bottom: 5px;
     }
   }
