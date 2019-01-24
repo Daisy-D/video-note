@@ -2132,7 +2132,7 @@ const oneList = [{
   "bgtime": 1537185600
 }, {
   "endtime": 0,
-  "task_list": [{ 
+  "task_list": [{  
     "endtime": 0,
     "resid_ext": {
       "times": 444
