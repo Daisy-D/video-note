@@ -1,6 +1,6 @@
 <template>
   <div class="index-contain">
-    <div class="module-box" v-for="(item,index) in oneList" :key="index">
+    <div class="module-box" v-for="(item,index) in resetList" :key="index">
       <div class="module-title">
         <span class="moudle-index">{{index+1}}</span>
         <span>{{item.name}}</span>
@@ -29,6 +29,17 @@ export default {
       collapseValue: "0",
       oneList: oneList
     };
+  },
+  created() {
+    this.resetList = this.resetList()
+  },
+  methods: {
+    resetList() {
+      this.oneList.forEach((item,index)=>{
+        
+      })
+      return this.oneList
+    }
   }
 };
 </script>
