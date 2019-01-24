@@ -2137,7 +2137,7 @@ const oneList = [{
     "resid_ext": {
       "times": 444
     },
-    "latest_pos": 236, 
+    "latest_pos": 236,  
     "resid_list": "i14240dbmki",
     "update_ts": 1537626108,
     "type": 2,
